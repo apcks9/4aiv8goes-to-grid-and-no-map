@@ -172,7 +172,7 @@ export default function GridOnly() {
           'Authorization': `Bearer ${OPENAI_API_KEY}`
         },
         body: JSON.stringify({
-          model: 'gpt-5-pro',
+          model: 'gpt-5',
           messages: chatgptMessages
         })
       })
