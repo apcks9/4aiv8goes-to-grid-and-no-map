@@ -181,7 +181,7 @@ export default function GridOnly() {
           'Authorization': `Bearer ${OPENAI_API_KEY}`
         },
         body: JSON.stringify({
-          model: 'gpt-5',
+          model: 'gpt-4o',
           messages: chatgptMessages
         })
       })
@@ -240,7 +240,7 @@ export default function GridOnly() {
           'Authorization': `Bearer ${GROK_API_KEY}`
         },
         body: JSON.stringify({
-          model: 'grok-4',
+          model: 'grok-2-latest',
           messages: grokMessages
         })
       })
@@ -299,7 +299,7 @@ export default function GridOnly() {
           'Authorization': `Bearer ${PERPLEXITY_API_KEY}`
         },
         body: JSON.stringify({
-          model: 'sonar',
+          model: 'sonar-pro',
           messages: perplexityMessages
         })
       })
