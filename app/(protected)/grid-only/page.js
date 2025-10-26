@@ -106,27 +106,21 @@ export default function GridOnly() {
         { role: 'user', content: queryText }
       ];
 
-      // Call Claude API through backend
-      fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/claude`, {
+      // Call Claude API directly via Anthropic API
+      fetch('https://api.anthropic.com/v1/messages', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'x-api-key': CLAUDE_API_KEY,
+          'anthropic-version': '2023-06-01'
         },
         body: JSON.stringify({
-          message: queryText,
-          messages: claudeMessages,
-          apiKey: CLAUDE_API_KEY
+          model: 'claude-sonnet-4-5',
+          max_tokens: 4096,
+          messages: claudeMessages
         })
       })
-        .then(async (res) => {
-          const contentType = res.headers.get('content-type');
-          if (contentType && contentType.includes('application/json')) {
-            return res.json();
-          } else {
-            const text = await res.text();
-            throw new Error('Backend returned HTML instead of JSON. The backend may be starting up (Render free tier cold start). Please wait 30 seconds and try again.');
-          }
-        })
+        .then(res => res.json())
         .then(data => {
           const response = data.error
             ? `Error: ${data.error.message || JSON.stringify(data.error)}`
