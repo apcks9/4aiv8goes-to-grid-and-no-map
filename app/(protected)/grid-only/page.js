@@ -378,9 +378,9 @@ export default function GridOnly() {
   };
 
   return (
-    <div className={`min-h-screen ${darkMode ? 'bg-gradient-to-br from-gray-900 to-gray-800' : 'bg-gray-100'}`}>
+    <div className={`min-h-screen ${darkMode ? 'bg-gradient-to-br from-black to-gray-950' : 'bg-gray-100'}`}>
       {/* Minimal top bar */}
-      <nav className={`${darkMode ? 'bg-gray-800' : 'bg-white'} shadow-sm`}>
+      <nav className={`${darkMode ? 'bg-black border-b border-gray-900' : 'bg-white'} shadow-sm`}>
         <div className="w-full px-4">
           <div className="flex justify-between items-center h-12">
             <div className="flex items-center cursor-pointer" onClick={() => router.push('/dashboard')}>
@@ -389,13 +389,13 @@ export default function GridOnly() {
             <div className="flex items-center gap-3">
               <button
                 onClick={() => router.push('/dashboard')}
-                className={`px-3 py-1 text-sm ${darkMode ? 'bg-gray-500 hover:bg-gray-600' : 'bg-gray-700 hover:bg-gray-800'} text-white rounded transition-all`}
+                className={`px-3 py-1 text-sm ${darkMode ? 'bg-gray-800 hover:bg-gray-700' : 'bg-gray-700 hover:bg-gray-800'} text-white rounded transition-all`}
               >
                 Dashboard
               </button>
               <button
                 onClick={() => setDarkMode(!darkMode)}
-                className={`px-3 py-1 text-sm ${darkMode ? 'bg-gray-500 hover:bg-gray-600' : 'bg-gray-700 hover:bg-gray-800'} text-white rounded transition-all`}
+                className={`px-3 py-1 text-sm ${darkMode ? 'bg-gray-800 hover:bg-gray-700' : 'bg-gray-700 hover:bg-gray-800'} text-white rounded transition-all`}
               >
                 {darkMode ? '☀️' : '🌙'}
               </button>
@@ -421,7 +421,7 @@ export default function GridOnly() {
               value={aiInput}
               onChange={(e) => setAiInput(e.target.value)}
               placeholder="Ask a question to all four AIs..."
-              className={`flex-1 px-3 py-1 text-sm border ${darkMode ? 'bg-gray-600 border-gray-500 text-white placeholder-gray-400' : 'bg-white border-gray-300 text-gray-900'} rounded focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all`}
+              className={`flex-1 px-3 py-1 text-sm border ${darkMode ? 'bg-gray-900 border-gray-700 text-white placeholder-gray-500' : 'bg-white border-gray-300 text-gray-900'} rounded focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all`}
             />
             <button
               type="submit"
@@ -436,7 +436,7 @@ export default function GridOnly() {
         {/* 2x2 Grid Layout - Full screen */}
         <div className="grid grid-cols-2 grid-rows-2 gap-1 h-[calc(100vh-100px)]">
           {/* Claude Response - Top Left */}
-          <div className={`${darkMode ? 'bg-gray-800 border-gray-600' : 'bg-white border-gray-300'} rounded-lg p-1 border flex flex-col overflow-hidden`}>
+          <div className={`${darkMode ? 'bg-gray-950 border-gray-800' : 'bg-white border-gray-300'} rounded-lg p-1 border flex flex-col overflow-hidden`}>
             <div className="flex items-center px-1 mb-0 flex-shrink-0">
               <h4 className={`text-xs font-semibold ${darkMode ? 'text-blue-400' : 'text-blue-600'} flex items-center gap-1`}>
                 <span className="text-sm">🤖</span> Claude
@@ -463,7 +463,7 @@ export default function GridOnly() {
           </div>
 
           {/* ChatGPT Response - Top Right */}
-          <div className={`${darkMode ? 'bg-gray-800 border-gray-600' : 'bg-white border-gray-300'} rounded-lg p-1 border flex flex-col overflow-hidden`}>
+          <div className={`${darkMode ? 'bg-gray-950 border-gray-800' : 'bg-white border-gray-300'} rounded-lg p-1 border flex flex-col overflow-hidden`}>
             <div className="flex items-center px-1 mb-0 flex-shrink-0">
               <h4 className={`text-xs font-semibold ${darkMode ? 'text-green-400' : 'text-green-600'} flex items-center gap-1`}>
                 <span className="text-sm">💬</span> ChatGPT
@@ -490,7 +490,7 @@ export default function GridOnly() {
           </div>
 
           {/* Grok Response - Bottom Left */}
-          <div className={`${darkMode ? 'bg-gray-800 border-gray-600' : 'bg-white border-gray-300'} rounded-lg p-1 border flex flex-col overflow-hidden`}>
+          <div className={`${darkMode ? 'bg-gray-950 border-gray-800' : 'bg-white border-gray-300'} rounded-lg p-1 border flex flex-col overflow-hidden`}>
             <div className="flex items-center px-1 mb-0 flex-shrink-0">
               <h4 className={`text-xs font-semibold ${darkMode ? 'text-purple-400' : 'text-purple-600'} flex items-center gap-1`}>
                 <span className="text-sm">⚡</span> Grok
@@ -517,7 +517,7 @@ export default function GridOnly() {
           </div>
 
           {/* Perplexity Response - Bottom Right */}
-          <div className={`${darkMode ? 'bg-gray-800 border-gray-600' : 'bg-white border-gray-300'} rounded-lg p-1 border flex flex-col overflow-hidden`}>
+          <div className={`${darkMode ? 'bg-gray-950 border-gray-800' : 'bg-white border-gray-300'} rounded-lg p-1 border flex flex-col overflow-hidden`}>
             <div className="flex items-center px-1 mb-0 flex-shrink-0">
               <h4 className={`text-xs font-semibold ${darkMode ? 'text-orange-400' : 'text-orange-600'} flex items-center gap-1`}>
                 <span className="text-sm">🔍</span> Perplexity
@@ -556,7 +556,7 @@ export default function GridOnly() {
           {queryHistory.length > 0 && (
             <button
               onClick={clearHistory}
-              className={`px-1.5 py-0.5 rounded ${darkMode ? 'bg-gray-700 hover:bg-gray-600' : 'bg-gray-600 hover:bg-gray-700'} text-white transition-colors`}
+              className={`px-1.5 py-0.5 rounded ${darkMode ? 'bg-gray-800 hover:bg-gray-700' : 'bg-gray-600 hover:bg-gray-700'} text-white transition-colors`}
               style={{ fontSize: '9px' }}
             >
               🗑️ Clear
