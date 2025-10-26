@@ -12,7 +12,7 @@ export async function POST(request) {
         'anthropic-version': '2023-06-01'
       },
       body: JSON.stringify({
-        model: 'claude-opus-4-1-20250805',
+        model: 'claude-sonnet-4-5',
         max_tokens: 4096,
         messages: messages
       })
