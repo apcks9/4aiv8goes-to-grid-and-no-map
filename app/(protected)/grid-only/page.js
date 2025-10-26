@@ -106,18 +106,15 @@ export default function GridOnly() {
         { role: 'user', content: queryText }
       ];
 
-      // Call Claude API directly via Anthropic API
-      fetch('https://api.anthropic.com/v1/messages', {
+      // Call Claude via Next.js API route
+      fetch('/api/claude', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
-          'x-api-key': CLAUDE_API_KEY,
-          'anthropic-version': '2023-06-01'
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          model: 'claude-sonnet-4-5',
-          max_tokens: 4096,
-          messages: claudeMessages
+          messages: claudeMessages,
+          apiKey: CLAUDE_API_KEY
         })
       })
         .then(res => res.json())
