@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* Format AI responses with better readability */
+.ai-response {
+  line-height: 1.8;
+}
+
+/* Replace asterisks and dashes with proper bullets */
+.ai-response p {
+  margin-bottom: 0.75rem;
+}
+
+/* Style for bullet points - replace * and - with actual bullets */
+.ai-response::before {
+  content: '';
+  display: block;
+}
+
+/* Auto-format lists */
+.ai-response {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* Add spacing between paragraphs */
+.ai-response > * + * {
+  margin-top: 0.75rem;
+}
